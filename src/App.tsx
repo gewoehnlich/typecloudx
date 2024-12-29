@@ -1,5 +1,7 @@
 import React from "react";
+import { Word } from "./main";
 
+const words = ["hello", "out", "to", "more", "order", "number", "string", "boolean", "integer", "type"];
 const ResultItem = ({ id, value }: { id: string; value: number }) => (
     <div id={id}>{value}</div>
 );
@@ -19,7 +21,11 @@ function App() {
         ))}
       </div>
 
-      <div id="wordsList"></div>
+      <div id="wordsList">
+        {words.map((word, index) => (
+            <Word key={index} word={word} />
+        ))}
+      </div>
 
       <div id="cursor"></div>
     </div>
