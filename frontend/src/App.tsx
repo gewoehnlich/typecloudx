@@ -1,5 +1,6 @@
 import React from "react";
-import { Word } from "./main";
+import { Word } from "./word.tsx";
+import { setCurrentClasses } from "./current.tsx";
 
 const words = ["hello", "out", "to", "more", "order", "number", "string", "boolean", "integer", "type"];
 const ResultItem = ({ id, value }: { id: string; value: number }) => (
@@ -7,6 +8,8 @@ const ResultItem = ({ id, value }: { id: string; value: number }) => (
 );
 
 function App() {
+    const wordsListRef = setCurrentClasses();
+
   return (
     <div>
       <div id="result">
@@ -21,7 +24,7 @@ function App() {
         ))}
       </div>
 
-      <div id="wordsList">
+      <div id="wordsList" ref={wordsListRef}>
         {words.map((word, index) => (
             <Word key={index} word={word} />
         ))}
