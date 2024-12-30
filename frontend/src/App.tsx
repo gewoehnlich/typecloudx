@@ -1,7 +1,8 @@
 import React from "react";
 import { Word } from "./word.tsx";
-import { setCurrentClasses } from "./current.tsx";
-import { TypingComponent, WindowResizeComponent } from './typing.tsx'
+import { SetupComponent } from "./current.tsx";
+import { TypingComponent } from './typing.tsx';
+import { WindowResizeComponent } from './cursor.tsx';
 
 const words = ["hello", "out", "to", "more", "order", "number", "string", "boolean", "integer", "type"];
 const ResultItem = ({ id, value }: { id: string; value: number }) => (
@@ -9,8 +10,6 @@ const ResultItem = ({ id, value }: { id: string; value: number }) => (
 );
 
 function App() {
-    const wordsListRef = setCurrentClasses();
-
   return (
     <div>
       <div id="result">
@@ -25,14 +24,15 @@ function App() {
         ))}
       </div>
 
-      <div id="wordsList" ref={wordsListRef}>
+      <div id="wordsList">
         {words.map((word, index) => (
             <Word key={index} word={word} />
         ))}
       </div>
 
       <div id="cursor"></div>
-
+      
+      <SetupComponent />
       <TypingComponent />
       <WindowResizeComponent />
     </div>

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { handleCursorPosition } from "./cursor.tsx";
+import { useEffect } from "react";
 
 export const TypingComponent = () => {
     useEffect(() => {
         const handleKeydown = (ev: KeyboardEvent) => {
             console.log(ev.key);
+
+            console.log(document.getElementById("cursor"));
         }
 
         document.addEventListener("keydown", handleKeydown);
@@ -16,16 +17,4 @@ export const TypingComponent = () => {
 
     return null; 
 };
-
-export const WindowResizeComponent = () => {
-    useEffect(() => {
-        window.addEventListener("resize", handleCursorPosition);
-
-        return () => {
-            window.removeEventListener("resize", handleCursorPosition);
-        };
-    }, []);
-
-    return null;
-}
 

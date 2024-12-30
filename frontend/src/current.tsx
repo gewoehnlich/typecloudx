@@ -1,18 +1,26 @@
-import React, { useRef, useEffect } from "react";
+import { useEffect } from "react";
 
-export const setCurrentClasses = (): React.RefObject<HTMLDivElement> => {
-    const containerRef = useRef<HTMLDivElement>(null);
-
+export const SetupComponent = () => {
     useEffect(() => {
-        if (containerRef.current?.firstElementChild) {
-            containerRef.current.firstElementChild.classList.add("current");
-
-            if (containerRef.current.firstElementChild?.firstElementChild) {
-                containerRef.current.firstElementChild.firstElementChild.classList.add("current");
+        const wordsList = document.getElementById("wordsList");
+        if (wordsList) {
+            const firstWord = wordsList.firstChild;
+            if (!firstWord) {
+                return;
             }
-        }
-    });
 
-    return containerRef;
-};
+            firstWord.classList.add("current");
+
+            const firstLetter = firstWord.firstChild;
+            if (!firstLetter) {
+                return;
+            }
+
+            firstLetter.classList.add("current");
+        }
+    }, []);
+
+    return null;
+}
+
 

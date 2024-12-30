@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 export const handleCursorPosition = () => {
     const currentLetter = document.querySelector(".letter.current");
     const cursor = document.getElementById("cursor");
@@ -11,3 +13,14 @@ export const handleCursorPosition = () => {
     }
 };
 
+export const WindowResizeComponent = () => {
+    useEffect(() => {
+        window.addEventListener("resize", handleCursorPosition);
+
+        return () => {
+            window.removeEventListener("resize", handleCursorPosition);
+        };
+    }, []);
+
+    return null;
+}
