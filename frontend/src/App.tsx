@@ -1,6 +1,7 @@
 import React from "react";
 import { Word } from "./word.tsx";
 import { setCurrentClasses } from "./current.tsx";
+import { TypingComponent, WindowResizeComponent } from './typing.tsx'
 
 const words = ["hello", "out", "to", "more", "order", "number", "string", "boolean", "integer", "type"];
 const ResultItem = ({ id, value }: { id: string; value: number }) => (
@@ -31,6 +32,9 @@ function App() {
       </div>
 
       <div id="cursor"></div>
+
+      <TypingComponent />
+      <WindowResizeComponent />
     </div>
   );
 }
