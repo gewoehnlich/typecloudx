@@ -1,9 +1,4 @@
-export function handleExpectedKey(
-        currentWord: HTMLElement, 
-        currentLetter: HTMLElement, 
-        isLetter: boolean, 
-        isSpace: boolean
-    ): null {
+export function handleExpected(currentWord: HTMLElement, currentLetter: HTMLElement, isLetter: boolean, isSpace: boolean): null {
 
     if (isLetter) {
         currentLetter.classList.remove("current");
@@ -32,3 +27,4 @@ export function handleExpectedKey(
         }
     }
 }
+
