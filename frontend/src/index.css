@@ -54,6 +54,10 @@ main {
     color: var(--errorColor);
 }
 
+.letter.space {
+    height: 32px;
+}
+
 @keyframes blink {
     0% {
         opacity: 1;

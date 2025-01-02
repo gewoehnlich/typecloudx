@@ -1,7 +1,11 @@
 import { addCurrentClassToFirstChild } from "./current.tsx";
 
-export const Letter = ({ letter }: { letter: string }) => (
+const Letter = ({ letter }: { letter: string }) => (
     <div className="letter">{letter}</div>
+);
+
+const Space = () => (
+    <div className="letter space"></div>
 );
 
 export const Word = ({ word }: { word: string }) => (
@@ -10,6 +14,6 @@ export const Word = ({ word }: { word: string }) => (
             <Letter key={index} letter={letter} />
         ))}
 
-        <Letter key={word.length} letter={" "} />
+        <Space />
     </div>
 );
