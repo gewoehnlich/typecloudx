@@ -1,5 +1,5 @@
-export function handleExpected(currentWord: HTMLElement, currentLetter: HTMLElement, isLetter: boolean, isSpace: boolean): null {
-
+export function handleExpected(currentWord: HTMLElement, currentLetter: HTMLElement, isLetter: boolean, isSpace: boolean): null 
+{
     if (isLetter) {
         currentLetter.classList.remove("current");
         currentLetter.classList.add("correct");
@@ -16,15 +16,19 @@ export function handleExpected(currentWord: HTMLElement, currentLetter: HTMLElem
         }
 
         if (!isWordWrong) {
-            currentLetter.classList.remove("current");
-            currentWord.classList.remove("current");
-
-            const nextWord: HTMLDomElement = currentWord.nextSibling;
-            nextWord.classList.add("current");
-
-            const nextLetter: HTMLDomElement = nextWord.firstChild;
-            nextLetter.classList.add("current");
+            moveToNextLetter(currentWord, currentLetter);
         }
     }
 }
 
+function moveToNextLetter(currentWord: HTMLElement, currentLetter: HTMLElement) 
+{
+    currentLetter.classList.remove("current");
+    currentWord.classList.remove("current");
+
+    const nextWord: HTMLDomElement = currentWord.nextSibling;
+    nextWord.classList.add("current");
+
+    const nextLetter: HTMLDomElement = nextWord.firstChild;
+    nextLetter.classList.add("current");
+}
